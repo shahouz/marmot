@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 import java.util.Set;
 
 /**
- * 描述
+ * 注入工具类
  *
  * @author : tdl
  * @date : 2019/7/8 上午10:41
@@ -16,11 +16,7 @@ import java.util.Set;
 public class InjectUtil {
 
     /**
-     * 获取注入的实现类
-     *
-     * @param
-     * @return
-     * @throws
+     * 比对是否有满足条件的实现类
      */
     public static Class<?> getServiceResource(Field field) {
         Set<Class<?>> classSet = ClassHelper.getServiceClassSet();

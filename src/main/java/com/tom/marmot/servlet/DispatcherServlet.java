@@ -8,11 +8,8 @@ import com.tom.marmot.loader.HelperLoader;
 import com.tom.marmot.method.Handler;
 import com.tom.marmot.method.Param;
 import com.tom.marmot.method.View;
-import com.tom.marmot.util.CodecUtil;
-import com.tom.marmot.util.RequestParamsUtil;
 import com.tom.marmot.util.ReflectionUtil;
-import com.tom.marmot.util.StreamUtil;
-import org.apache.commons.lang3.ArrayUtils;
+import com.tom.marmot.util.RequestParamsUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.ServletConfig;

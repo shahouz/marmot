@@ -1,7 +1,5 @@
 package com.tom.marmot;
 
-import com.tom.marmot.helper.ConfigHelper;
-import com.tom.marmot.util.PropsUtil;
 import org.apache.commons.lang3.StringUtils;
 
 /**
