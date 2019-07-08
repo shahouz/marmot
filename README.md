@@ -3,13 +3,17 @@
 #### 介绍
 轻量级MVC框架。
 
-#### 注解说明
+## 注解
 
 - @Controller 声明控制器Bean
 - @Service 声明服务层Bean
-- @Action 声明接口
+- @RequestMapping 声明接口
 - @Inject 注入
 - @Aspect 声明切面
+
+## AOP的使用
+
+使用例子可参考com.tom.marmot.test.ControllerAspect
 
 #### 关于IOC
 
