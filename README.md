@@ -13,7 +13,9 @@
 
 ## AOP的使用
 
-使用例子可参考com.tom.marmot.test.ControllerAspect
+新增一个类，继承`AspectProxy`类，可重写 `begin、end、error、after、before` 等方法用于定义Advice；
+在类上加`@Aspect`注解，设置value值用于配置Pointcut；
+使用例子可参考com.tom.marmot.test.ControllerAspect；
 
 #### 关于IOC
 
