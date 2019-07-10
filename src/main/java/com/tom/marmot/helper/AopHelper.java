@@ -1,9 +1,11 @@
 package com.tom.marmot.helper;
 
 import com.tom.marmot.annotation.Aspect;
+import com.tom.marmot.annotation.Service;
 import com.tom.marmot.proxy.AspectProxy;
 import com.tom.marmot.proxy.Proxy;
 import com.tom.marmot.proxy.ProxyManager;
+import com.tom.marmot.proxy.TransactionProxy;
 
 import java.lang.annotation.Annotation;
 import java.util.*;
@@ -43,6 +45,12 @@ public class AopHelper {
 
     private static Map<Class<?>, Set<Class<?>>> createProxyMap() throws Exception {
         Map<Class<?>, Set<Class<?>>> proxyMap = new HashMap<Class<?>, Set<Class<?>>>(16);
+        addAspectProxy(proxyMap);
+        addTransactionProxy(proxyMap);
+        return proxyMap;
+    }
+
+    private static void addAspectProxy(Map<Class<?>, Set<Class<?>>> proxyMap) throws Exception {
         Set<Class<?>> proxyClassSet = ClassHelper.getClassSetBySuper(AspectProxy.class);
         for (Class<?> proxyClass : proxyClassSet) {
             if (proxyClass.isAnnotationPresent(Aspect.class)) {
@@ -51,8 +59,11 @@ public class AopHelper {
                 proxyMap.put(proxyClass, targetClassSet);
             }
         }
+    }
 
-        return proxyMap;
+    private static void addTransactionProxy(Map<Class<?>, Set<Class<?>>> proxyMap) {
+        Set<Class<?>> serviceClassSet = ClassHelper.getClassSetByAnnotation(Service.class);
+        proxyMap.put(TransactionProxy.class, serviceClassSet);
     }
 
     private static Map<Class<?>, List<Proxy>> createTargetMap(Map<Class<?>, Set<Class<?>>> proxyMap) throws Exception {
